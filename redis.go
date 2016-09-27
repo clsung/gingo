@@ -1,4 +1,4 @@
-package main
+package gingo
 
 import (
 	"log"

@@ -4,6 +4,7 @@ import (
 	"flag"
 	"log"
 
+	"github.com/clsung/gingo"
 	"github.com/gin-gonic/gin"
 )
 
@@ -17,7 +18,7 @@ func main() {
 	router := gin.Default()
 	log.Printf("redis address is %s\n", *redisAddress)
 	log.Printf("redis auth is %s\n", *redisAuth)
-	redis := NewRedisStore(*redisAddress, *redisAuth)
+	redis := gingo.NewRedisStore(*redisAddress, *redisAuth)
 	router.GET("/ready", func(c *gin.Context) {
 		ret, err := redis.Do("PING")
 		if err != nil {
