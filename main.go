@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"log"
 
 	"github.com/garyburd/redigo/redis"
 	"github.com/gin-gonic/gin"
@@ -16,6 +17,7 @@ func main() {
 	router.GET("/ready", checkRedis)
 	router.GET("/ready/:auth", checkRedisWithAuth)
 
+	log.Printf("redis address is %s\n", *redisAddress)
 	router.Run()
 }
 
