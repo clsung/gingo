@@ -13,6 +13,7 @@ var (
 )
 
 func main() {
+	flag.Parse()
 	router := gin.Default()
 	router.GET("/ready", checkRedis)
 	router.GET("/ready/:auth", checkRedisWithAuth)
