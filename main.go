@@ -34,6 +34,7 @@ func doRedis(c *gin.Context, cmd, auth string) {
 		c.JSON(500, gin.H{
 			"message": err,
 		})
+		return
 	}
 	defer client.Close()
 	if auth != "" {
@@ -49,6 +50,7 @@ func doRedis(c *gin.Context, cmd, auth string) {
 		c.JSON(500, gin.H{
 			"message": err,
 		})
+		return
 	}
 	c.JSON(200, gin.H{
 		"message": ret,
